@@ -1,0 +1,36 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <!-- ([routerLink]="['/']") para usar navegacion asincrona de angular, 
+            para no consumir recursos-->
+          <a [routerLink]="['/']">Home</a>
+        </li>
+        <li>
+          <a [routerLink]="['/listar-libros']">Lista de Libros</a>
+        </li>
+        <li>
+          <a [routerLink]="['/acerca-de']">Acerca de</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="jumbotron">
+      <button class="glyphicon glyphicon-book mostrar-libros" (click)="mostrarLista = !mostrarLista" ></button>
+      <div class="misLibros" *ngIf="mostrarLista" >
+        <h2>Mis Libros</h2>
+        <ul *ngIf="librosSeleccionados.mostrarLibros()" >
+          <li *ngFor="let libro of librosSeleccionados.mostrarLibros()" >{{ libro.titulo }}</li>
+        </ul>
+
+      </div>
+      <h1>Club de libros</h1>
+    </div>
+  </div>
+</div>
